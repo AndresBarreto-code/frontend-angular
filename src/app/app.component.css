@@ -1,0 +1,13 @@
+h1{
+    color: red;
+}
+.container{
+    width: 75%;
+    max-width:initial;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

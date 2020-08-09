@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -20,6 +21,11 @@ import { TaskTodayComponent } from './task-today/task-today.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { ShowGroupComponent } from './show-group/show-group.component';
 import { CheckFechaPipe } from './check-fecha.pipe';
+import { CardsComponent } from './cards/cards.component';
+
+import { HttpService } from './http.service';
+import { DataService } from './data.service';
+import { TareasDataService } from './tareas-data.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +39,8 @@ import { CheckFechaPipe } from './check-fecha.pipe';
     TaskTodayComponent,
     TasksComponent,
     ShowGroupComponent,
-    CheckFechaPipe
+    CheckFechaPipe,
+    CardsComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +51,10 @@ import { CheckFechaPipe } from './check-fecha.pipe';
     MatInputModule,
     MatDatepickerModule,
     MatFormFieldModule,
+    HttpClientModule,
     MatNativeDateModule
   ],
-  providers: [],
+  providers: [HttpService, DataService, TareasDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

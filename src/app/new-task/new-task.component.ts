@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'afbg-new-task',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewTaskComponent implements OnInit {
 
-  constructor() { }
+  constructor(private data: DataService) { }
 
   ngOnInit(): void {
+  }
+
+  addTask() {
+    this.data.postTask({titulo: 'Titulo 1', descripcion: 'Descripcion 1', fecha: '20-05-07'})
   }
 
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { CardSettings } from './card-setting';
 
 @Component({
   selector: 'afbg-card',
@@ -6,16 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-  photos: Array<string>;
-  title: String;
-  description: String;
+  @Input() settings: CardSettings;
   
   constructor() { }
 
   ngOnInit(): void {
-    this.photos = ['photo.jpg', 'photo2.png'];
-    this.title = 'Web developer';
-    this.description = 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae, sunt!';
   }
 
 }

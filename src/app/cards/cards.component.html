@@ -1,0 +1,11 @@
+<div class="row">
+    <div *ngFor='let user of users'  class="col s12 m6 l3">
+        <afbg-card [settings]="{
+                name: user.nombre,
+                photo: '../assets/photo.jpg',
+                description: 'Lorem ipsum dolor sit amet Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, porro?',
+                title: user.title
+            }">
+        </afbg-card>     
+    </div>
+</div>

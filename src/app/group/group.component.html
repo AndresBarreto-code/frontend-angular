@@ -1,0 +1,28 @@
+<div class="card">
+
+    <div class="card-image">
+      <div class="groups-container ">
+        <div class="item-grupo" *ngFor="let item of groups">
+          <a [routerLink]="['ver-grupo', item.nombre]" class="img-grupo" [ngClass]="{'grey lighten-4': item.resaltado}" (mouseenter)="onHoverGroupIn(item)" (mouseleave)="onHoverGroupOut(item)">
+            <i class="material-icons large-icon  red-text text-lighten-2">{{item.icono}}</i>
+          </a>
+          <div class="red-text text-lighten-2 center">
+            {{item.nombre}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="card-content center">
+      <div class="row">
+        <div class="col s4 offset-s4">
+          <span class="card-title grey-text text-darken-4">Grupos</span>
+        </div>
+        <div class="col s4">
+          <button class="btn-floating  red lighten-2 waves-effect"><i class="material-icons">group_add</i></button>
+        </div>
+      </div>
+      <p class="grey-text text-darken-1">You can type some instructions here</p>
+    </div>  
+  </div>
+  

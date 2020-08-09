@@ -1,0 +1,43 @@
+$backgroundColorDate: #D1D1D1;
+$borderColor: #A4E6E4;
+input.input-titulo{
+    font-size: 2.5em;
+}
+label{
+    font-size: 1em;
+}
+input[type="text"]:focus:not([readonly]), textarea:focus:not([readonly]){
+    border-bottom: 1px solid $borderColor;
+    box-shadow: 0 1px 0 0 $borderColor;
+}
+textarea:focus:not([readonly]){
+    border: 1px solid $borderColor;
+    box-shadow: 0 1px 0 0 $borderColor;
+}
+textarea.materialize-textarea:focus:not([readonly]) + label{
+    color: $borderColor;
+}
+input, textarea{
+    color: #757575;
+}
+textarea{
+    height: 7em !important;
+    border: 1px solid #757575;
+    padding: 3px;
+    overflow-y: auto;
+}
+button{
+    margin-left: 5px;
+}
+
+.date-selector{
+    width: 100% !important;
+    mat-form-field{
+    width: 100% !important;
+    background-color: $backgroundColorDate !important;
+    border-radius: 5px;
+        input{
+            border: $backgroundColorDate !important;
+        }
+    }
+}

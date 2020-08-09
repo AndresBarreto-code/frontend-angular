@@ -1,0 +1,43 @@
+.card{
+    width: 100% !important;
+    border-radius: 15px;
+}
+.divisor{
+    vertical-align: middle;
+}
+.groups-container{
+    display: flex;
+    flex-flow: row wrap;
+    padding: 2.5%;
+    height: auto !important;
+    overflow-y: auto;
+}
+.item-grupo{
+    width: 20%;
+    display: flex;
+    flex-flow: column nowrap;
+    height: 134px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.img-grupo{
+    width: 80%;
+    height: 80%;
+    border: 1px solid #e0e0e0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.large-icon{
+    font-size: 40px;
+}
+.card-image{
+    min-height: 10em;
+}
+.card-content{
+    .row{
+        margin-bottom: 5px !important;
+    }
+}

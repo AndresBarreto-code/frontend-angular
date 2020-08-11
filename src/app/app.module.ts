@@ -6,7 +6,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,7 +25,6 @@ import { CardsComponent } from './cards/cards.component';
 
 import { HttpService } from './http.service';
 import { DataService } from './data.service';
-import { TareasDataService } from './tareas-data.service';
 
 @NgModule({
   declarations: [
@@ -52,9 +51,10 @@ import { TareasDataService } from './tareas-data.service';
     MatDatepickerModule,
     MatFormFieldModule,
     HttpClientModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSelectModule
   ],
-  providers: [HttpService, DataService, TareasDataService],
+  providers: [HttpService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

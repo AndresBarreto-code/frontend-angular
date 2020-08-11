@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TareasDataService } from '../tareas-data.service';
+import { DataService } from '../data.service';
+import { DataInterface } from '../interfaces/data-interface';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,15 +10,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ShowGroupComponent implements OnInit {
 
-  tareas : Object[];
+  tasks : Object[];
   nombreGrupo : string;
 
-  constructor(private data : TareasDataService, private activatedRoute : ActivatedRoute) { 
+  constructor(private data : DataService, private activatedRoute : ActivatedRoute) { 
     this.nombreGrupo = this.activatedRoute.snapshot.params['nombre'];
   }
 
   ngOnInit(): void {
-    this.tareas = this.data.getTareasGrupo(this.nombreGrupo);
+    this.data.getNames((data: DataInterface) => this.tasks=this.data.filterByGroup(data.Tasks,this.nombreGrupo))
   }
 
 }

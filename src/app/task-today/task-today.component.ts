@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TareasDataService } from '../tareas-data.service';
+import { DataService } from '../data.service';
+import { DataInterface } from '../interfaces/data-interface';
+import { TaskInterface } from '../interfaces/task-interface';
 
 @Component({
   selector: 'afbg-task-today',
@@ -8,12 +10,12 @@ import { TareasDataService } from '../tareas-data.service';
 })
 export class TaskTodayComponent implements OnInit {
 
-  tasks : Object[];
+  tasks : TaskInterface[];
 
-  constructor(private data : TareasDataService) { }
+  constructor(private data : DataService) { }
 
   ngOnInit(): void {
-    this.tasks = this.data.getTareasHoy();
+    this.data.getNames((data: DataInterface) => this.tasks=this.data.filterByToday(data.Tasks))
   }
 
 }

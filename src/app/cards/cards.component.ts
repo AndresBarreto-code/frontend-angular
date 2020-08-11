@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CardComponent } from '../card/card.component';
 import { DataService } from '../data.service';
-import { CardSettings } from '../card/card-setting';
+import { CardSettingsInterface } from '../interfaces/card-setting-interface';
+import { DataInterface } from '../interfaces/data-interface';
 
-interface Data {
-  Users: CardSettings;
-  Tasks: string[];
-};
 
 
 @Component({
@@ -16,12 +13,12 @@ interface Data {
 })
 export class CardsComponent implements OnInit {
 
-  public users: CardSettings;
+  public users: CardSettingsInterface;
 
   constructor(private data: DataService) { }
 
   ngOnInit(): void {
-    this.data.getNames((data: Data) => this.users = data.Users)
+    this.data.getNames((data: DataInterface) => this.users = data.Users)
   }
 
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TareasDataService } from '../tareas-data.service';
+import { DataService } from '../data.service';
+import { DataInterface } from '../interfaces/data-interface';
+import { TaskInterface } from '../interfaces/task-interface';
 
 @Component({
   selector: 'afbg-tasks',
@@ -8,12 +10,12 @@ import { TareasDataService } from '../tareas-data.service';
 })
 export class TasksComponent implements OnInit {
   
-  tareas: Object[];
+  tasks: TaskInterface[]=[];
 
-  constructor(private data: TareasDataService) { }
+  constructor(private data: DataService) { }
 
   ngOnInit(): void {
-    this.tareas = this.data.tareas;
+    this.data.getNames((data: DataInterface) => Object.keys(data.Tasks).map((key) => this.tasks.push(data.Tasks[key])))
   }
 
 }

@@ -28,4 +28,39 @@ export class DataService {
   postTask(Task) {
     this.httpService.postInfo('Tasks',Task).subscribe((data: Response) => console.log(data));
   }
+
+  getTodayDate(){
+    let hoy = new Date();
+    let anio, mes, dia;
+    if(hoy.getDate()<10){
+      dia = '0'+hoy.getDate()
+    }else dia = hoy.getDate();
+    if ((hoy.getMonth()+1)<10) {
+      mes = '0'+(hoy.getMonth()+1);
+    }else mes = (hoy.getMonth()+1);
+    anio = hoy.getFullYear();
+    return anio+'-'+mes+'-'+dia
+  }
+
+  filterByToday(objectToFilter: any[]) {
+    let objectFiltered : any[] = [];
+    const today = this.getTodayDate()
+    Object.keys(objectToFilter).map((key) => {
+      if (objectToFilter[key].fecha == today) {
+        objectFiltered.push(objectToFilter[key]);
+      }
+    });
+    return objectFiltered;
+  }
+
+  filterByGroup(objectToFilter: any[], group : string) {
+    let objectFiltered : any[] = [];
+    const today = this.getTodayDate()
+    Object.keys(objectToFilter).map((key) => {
+      if (objectToFilter[key].grupo == group) {
+        objectFiltered.push(objectToFilter[key]);
+      }
+    });
+    return objectFiltered;
+  }
 }

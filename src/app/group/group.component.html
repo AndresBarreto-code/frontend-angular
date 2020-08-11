@@ -3,7 +3,7 @@
     <div class="card-image">
       <div class="groups-container ">
         <div class="item-grupo" *ngFor="let item of groups">
-          <a [routerLink]="['ver-grupo', item.nombre]" class="img-grupo" [ngClass]="{'grey lighten-4': item.resaltado}" (mouseenter)="onHoverGroupIn(item)" (mouseleave)="onHoverGroupOut(item)">
+          <a href="/group/{{item.nombre}}" class="img-grupo" [ngClass]="{'grey lighten-4': item.resaltado}" (mouseenter)="onHoverGroupIn(item)" (mouseleave)="onHoverGroupOut(item)">
             <i class="material-icons large-icon  red-text text-lighten-2">{{item.icono}}</i>
           </a>
           <div class="red-text text-lighten-2 center">

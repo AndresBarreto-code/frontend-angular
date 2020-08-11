@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TareasDataService } from '../tareas-data.service';
+import { DataService } from '../data.service';
+import { DataInterface } from '../interfaces/data-interface';
 
 @Component({
   selector: 'afbg-group',
@@ -10,10 +11,10 @@ export class GroupComponent implements OnInit {
 
   groups: Object[];
 
-  constructor(private data : TareasDataService) { }
+  constructor(private data : DataService) { }
 
   ngOnInit(): void {
-    this.groups = this.data.grupos;
+    this.data.getNames((data: DataInterface) => this.groups = data.Groups);
   }
   onHoverGroupIn(item){
     item.resaltado = true;

@@ -4,12 +4,15 @@ import { HomeComponent } from './home/home.component';
 import { NewTaskComponent } from './new-task/new-task.component';
 import { ShowGroupComponent } from './show-group/show-group.component';
 import { CardsComponent } from './cards/cards.component';
+import { GroupComponent } from './group/group.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'home', redirectTo: '' },
   { path: 'new-task', component: NewTaskComponent },
   { path: 'cards', component: CardsComponent },
-  { path: 'ver-grupo/:nombre', component: ShowGroupComponent}
+  { path: 'group/:nombre', component: ShowGroupComponent},
+  { path: 'groups', component: GroupComponent },
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CardSettings } from './card-setting';
+import { CardSettingsInterface } from '../interfaces/card-setting-interface';
 
 @Component({
   selector: 'afbg-card',
@@ -7,7 +7,7 @@ import { CardSettings } from './card-setting';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-  @Input() settings: CardSettings;
+  @Input() settings: CardSettingsInterface;
   
   constructor() { }
 

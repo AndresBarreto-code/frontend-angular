@@ -1,15 +1,27 @@
 <div class="card">
-    <div class="card-content">
+    <form class="card-content" (ngSubmit)="addTask(f)" #f="ngForm">
       <div class="row">
 
-        <div class="input-field col s12">
-          <input placeholder="Título tarea" type="text" class="validate input-titulo">
+        <div class="input-field col s8">
+          <input id="titulo" name="titulo" ngModel type="text" placeholder="Título tarea" class="validate input-titulo" required>
+        </div>
+
+        <div class="input-field col s4">
+          <div class="date-selector input-field">
+            <mat-form-field appearance="fill">
+              <mat-select id="grupo" name="grupo" ngModel placeholder="Grupos" class="validate input-titulo" required>
+                <mat-option *ngFor="let group of groups" [value]="group">
+                  {{group.nombre}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>  
         </div>
 
         <div class="col m7 s12 l8">
           <label for="descripcion">Descripción</label>
           <div class="input-field">
-            <textarea id="descripcion" class="materialize-textarea"></textarea>
+            <textarea id="descripcion" name="descripcion" ngModel class="materialize-textarea" required></textarea>
           </div>
         </div>
 
@@ -17,7 +29,7 @@
           <label for="fecha">Fecha:</label>
           <div class="date-selector input-field">
             <mat-form-field appearance="fill" >
-              <input matInput [matDatepicker]="picker" >
+              <input id="fecha" name="fecha" ngModel matInput [matDatepicker]="picker" required>
               <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
               <mat-datepicker #picker ></mat-datepicker>
             </mat-form-field>
@@ -25,13 +37,15 @@
         </div>
         
       </div>
+
       <div class="row">
         <div class="col s12">
-          <button (click)="addTask()" class="btn-floating green right"><i class="material-icons">check</i></button>
-          <button class="btn-floating red right"><i class="material-icons">close</i></button>
+          <button type="submit" class="btn-floating green right"><i class="material-icons">check</i></button>
+          <button type="reset" class="btn-floating red right"><i class="material-icons">close</i></button>
         </div>
       </div>
-    </div>
+
+    </form>
   </div>
 
   

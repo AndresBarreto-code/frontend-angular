@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataInterface } from '../interfaces/data-interface';
 import { DataService } from '../data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'afbg-new-task',
@@ -7,14 +9,20 @@ import { DataService } from '../data.service';
   styleUrls: ['./new-task.component.scss']
 })
 export class NewTaskComponent implements OnInit {
+  
+  groups: Object[];
 
-  constructor(private data: DataService) { }
+  constructor(private data: DataService, private router : Router) { }
 
   ngOnInit(): void {
+    this.data.getNames((data: DataInterface) => this.groups = data.Groups);
   }
 
-  addTask() {
-    this.data.postTask({titulo: 'Titulo 1', descripcion: 'Descripcion 1', fecha: '20-05-07'})
+  addTask(values) {
+    if (values.valid) {
+      this.data.postTask({titulo: values.value.titulo, descripcion: values.value.descripcion, fecha: values.value.fecha, grupo: values.value.grupo.nombre})
+      this.router.navigate(['home']);
+    }
   }
 
 }
